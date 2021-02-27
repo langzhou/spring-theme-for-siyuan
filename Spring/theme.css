@@ -1,20 +1,20 @@
 :root {
-    /* 主色 */
-    --b3-theme-primary: #25A56A;
-    --b3-theme-primary-light: rgba(66, 186, 130, 0.54);
+    
+    --b3-theme-primary: #25A56A;/* 主色 */
+    --b3-theme-primary-light: rgba(66, 186, 130, 0.54); /* 半透明色，用于输入框边框阴影等 */
     --b3-theme-primary-lighter: rgba(66, 186, 130, 0.38);
     --b3-theme-primary-lightest: rgba(66, 186, 130, 0.12);
     --b3-theme-secondary: #f3a92f;
-    --b3-theme-background: #ffffff;
-    --b3-theme-surface: #f3f3f3; /* 弹出面板 */
+    --b3-theme-background: #FFFFFF; /* 编辑区背景 */
+    --b3-theme-surface: #FAFAFA; /* 弹出面板 */
     --b3-theme-error: #d23f31;
 
     /* 文字颜色 */
-    --b3-theme-on-primary: #fff;
-    --b3-theme-on-secondary: #fff;
+    --b3-theme-on-primary: #FFFFFF;
+    --b3-theme-on-secondary: #FFFFFF;
     --b3-theme-on-background: #473F3C;
     --b3-theme-on-surface: #5f6368;
-    --b3-theme-on-error: #fff;
+    --b3-theme-on-error: #FFFFFF;
 
     /* 字体 */
     --b3-font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
@@ -72,7 +72,7 @@
     /* 编辑器搜索颜色 */
     --b3-vditor-search-background: #ffe955;
     --b3-vditor-search-border-color: #f2e680;
-    --b3-vditor-search-current-background: #a5d3fe;
+    --b3-vditor-search-current-background: #40C14A; /** 当前匹配的搜索结果 */
 
     /* 代码片段背景 */
     --b3-vditor-code-background: rgba(66, 186, 130, .1);
@@ -92,12 +92,12 @@
     --b3-vditor-mark-tag-color: #945932;
 
     /* 即时渲染行内元素颜色 */
-    --b3-vditor-inline-strong-color: var(--b3-theme-primary); /* 标题加粗颜色 */
+    --b3-vditor-inline-strong-color: var(--b3-theme-primary); /* 加粗颜色 */
     --b3-vditor-inline-em-color: #202124;
     --b3-vditor-inline-s-color: #202124;
     --b3-vditor-inline-link-color: #4285f4;
-    --b3-vditor-inline-mark-background: #FDC942;/* 搜索结果高亮 */
-    --b3-vditor-inline-mark-color: #202124;
+    --b3-vditor-inline-mark-background: #C98010;/* 搜索结果高亮背景色 */
+    --b3-vditor-inline-mark-color: #FFFFFF; /* 搜索结果高亮字体色 */
     --b3-vditor-inline-tag-color: #5f6368;
     --b3-vditor-inline-blockref-color: #106BA3;
 
@@ -106,10 +106,144 @@
     --b3-graph-ref-line:rgba(0, 0, 0, .4);
     --b3-graph-tag-line:rgba(100, 90, 10, .5);
 
+
+
 }
-/* 数学公式 */
-.vditor-reset .language-math{
-    font-size: 95%;
+
+
+
+
+/* ########### 页面布局 ################################## */
+
+/* 顶栏 */
+.toolbar{
+     background-color: var(--b3-theme-background);
+     box-shadow: 0px 2px 5px rgba(236,229,229,0.5);
+     border-bottom: 1px solid rgba(236,229,229,0.5);
+}
+
+/* dock面板*/
+.dock{
+    background-color: var(--b3-theme-surface);
+}
+/* 左侧dock */
+#dockLeft{
+    
+    align-items: center; 
+}
+/* 右侧dock */
+#dockRight{
+    /* background-color: var(--b3-theme-surface); */
+}
+
+/* 面板column */
+.fn__flex-column{
+    background-color: var(--b3-theme-surface);
+}
+
+/* dock 面板标题栏 */
+.block__icons{
+    background-color: var(--b3-theme-surface);
+}
+
+/* dock 面板标题栏选中激活 */
+.block__icons--active{
+    background-color: var(--b3-theme-surface);
+}
+
+/* 面板列表项 选中状态*/
+.b3-list--background .b3-list-item--focus {
+    color: var(--b3-theme-primary);    
+    background-color: var(--b3-theme-surface) !important;
+}
+.b3-list-item--focus .b3-list-item__text{
+    color: var(--b3-theme-primary);
+}
+
+/* dock列表项 hover状态 */
+.b3-list-item:hover{
+    background-color: var(--b3-theme-surface) !important;
+    color: var(--b3-theme-primary) !important;
+}
+.b3-list-item:hover .b3-list-item__text{
+    background-color: var(--b3-theme-surface) !important;
+    color: var(--b3-theme-primary) !important;
+}
+
+
+
+/* 页签标题栏 */
+.layout-tab-bar{
+    border-bottom: 1px solid var(--b3-border-color);
+    background-color: var(--b3-theme-background);
+}
+/* 页签标题栏 选中状态 */
+.layout-tab-bar .item--focus {
+    background-color: var(--b3-theme-background);
+}
+/* 页签标题栏 未编辑状态 */
+.layout-tab-bar .item--unupdate {
+    font-style: italic;
+    color: var(--b3-theme-on-surface);
+}
+/* 页签标题栏 标题文字 */
+.layout-tab-bar .item__text{
+    padding: 0 2px; /* 适当增加标题文本左右间隙 */
+}
+
+/* ########### 通用设置 & 部件 ################################## */
+
+/*滚动条整体样式*/
+::-webkit-scrollbar {
+    width : 1px;  /* 滚动条宽度 */
+    overflow-y: hidden;
+}
+/* 滚动条颜色 */
+::-webkit-scrollbar-thumb{
+    background-color: #eee;
+    border-radius: 15px;
+    border: 1px solid #eee;
+}
+/* 通用文本输入框背景和字体色 */
+.b3-text-filed,.b3-select{
+   
+}
+/* 通用文本输入框文本选中状态 */
+.b3-text-filed::selection{
+    background-color: var(--b3-theme-primary);
+    color: white;
+}
+/* 对话框 */
+.b3-dialog__container{
+    #background-color: #182026;
+    border-radius: 6px;
+    #border: 1px solid #182026;
+    overflow: hidden;
+}
+
+/* switch开关空间 */
+.b3-switch:checked{
+    background-color: var(--b3-border-color);
+}
+
+/* 左侧边栏搜索 如果想设置左右侧面板不同样式可以设置.fn__flex-shrink */
+.fn__flex-shrink .search__label input{
+    /* background-color: var(--b3-theme-surface); */
+}
+/* 通用浮窗搜索 */
+.search__label input{
+    background-color: var(--b3-theme-surface);
+}
+/* 调整ember块分隔线颜色 */
+[data-type=block-render] .fn__flex-column{
+    /* background-color: #efefef; */
+}
+
+/* ########### 主编辑区 ################################## */
+
+/* 编辑器工具栏 */
+.vditor-toolbar{
+    background-color: var(--b3-theme-background);
 }
 
 .vditor-reset {
@@ -137,74 +271,56 @@
     box-shadow: -1px 0 0px 0px var(--b3-border-color),1px 0 0px 0px var(--b3-border-color),0px 1px 0px 0px var(--b3-border-color),0px -1px 0px 0px var(--b3-border-color);
 }
 
-/*滚动条整体样式*/
-::-webkit-scrollbar {
-  width : 2px;  /*高宽分别对应横竖滚动条的尺寸*/
-  overflow-y: hidden;
-  }
-
-::-webkit-scrollbar-thumb{
-    background-color: #eee;
-    border-radius: 15px;
-    border: 1px solid #eee;
-  }
-
-/* link */
-.vditor-ir__link{
-    color: #1E789B;
-    text-decoration:none;
+/* 设置编辑器光标颜色 */
+.vditor-ir{
+     caret-color:var(--b3-theme-primary);
+}
+/* 光标选中文本 */
+.vditor-ir ::selection{ 
+    background-color:var(--b3-theme-primary);
+    color: var(--b3-theme-on-primary);
 }
 
-/* tag */
-.vditor-ir__tag{
-    color: #8D8C8C;
-    text-decoration: none;
-    border-bottom: 1px solid #cdcdcd;
 
-}
-/* code */
+/* code  行内代码 */
 code{
     color: var(--b3-theme-primary);
     font-weight: bold;
 }
 
-/* dock */
-.dock{
-    
-    background-color: #FAFAFA;
+/* 数学公式 */
+.vditor-reset .language-math{
+    font-size: 95%;
 }
-#dockLeft{
-    width: 40px;
-    align-items: center; 
+
+/* tag 标签 */
+.vditor-ir__tag{
+    color: #8D8C8C;
+    text-decoration: none;
+    border-bottom: 1px solid #cdcdcd;
 }
-#dockRight{
-    background-color: #FAFAFA;
-}
-/* top toolbar */
-.toolbar{
-     background-color: #FFFFFF;
-     box-shadow: 0px 2px 4px rgba(236,229,229,0.5);
-     border-bottom: 1px solid rgba(236,229,229,0.5);
+
+/* 外部链接 */
+.vditor-ir__link{
+    color: #1E789B;
+    text-decoration:none;
+    padding: 0 2px;
 }
 
 /* 块引用 */
 .vditor-ir__blockref{
-        border-bottom: .5px dashed var(--b3-theme-primary);
-        padding-bottom: 2px;
-        color: var(--b3-theme-on-background);
-        color: var(--b3-theme-primary);
-        margin: 0 2px;
+    border-bottom: .5px dashed var(--b3-theme-primary);
+    padding-bottom: 2px;
+    color: var(--b3-theme-primary);
+    margin: 0 2px;
 
-    }
+}
 /* 块引用悬浮样式 */
  .vditor-ir__blockref:hover{
-        background-color: #F6F8F9;
-        padding-bottom: 3px;       
-        border-bottom: .5px solid #D8E1E8;
-        
-    }
+    background-color: var(--b3-theme-primary-lightest);
+}
 
-/* 引文*/
+/* blockquote 引言 */
 .vditor-reset blockquote {
     padding: 0.5em;
     color: #727172;
@@ -212,105 +328,22 @@ code{
     margin: 0 0 16px 0;
     background-color: rgba(66,186,130,0.1);
 }
-/* 修改搜索结果页文件icon颜色使其更显目 todo */
+
+/* 修改搜索结果页文件icon颜色使其更显目 #todo */
 .b3-dialog__container .b3-list-item__graphic use #iconFile{
  
 } 
 
 
-
-.b3-switch:checked{
-    background-color: var(--b3-border-color);
+/* 表格 */
+.vditor-reset table tr{
+    background-color: var(--b3-theme-surface);
 }
-
-.layout-tab-bar{
-    border-bottom: 1px solid var(--b3-border-color);
-}
-
-/*编辑器工具栏*/
-.vditor-toolbar{
-    background-color: var(--b3-theme-background);
-}
-
-/* docker面板 */
-
-.fn__flex-column{
-    background-color: #FAFAFA;
-}
-
-
-/* docker 标题栏 */
-.block__icons{
-    background-color: #FAFAFA;
-}
-
-.b3-list-item__text{
-    color: #595959;
-}
-
-.b3-list-item:hover{
-    background-color: #FAFAFA !important;
-    color: var(--b3-theme-primary) !important;
-}
-.b3-list-item:hover .b3-list-item__text{
-    background-color: #FAFAFA !important;
-    color: var(--b3-theme-primary) !important;
-}
-/* 设置通用文本框背景和字体色 */
-.b3-text-filed,.b3-select{
-    #background-color: #1D2832;
-    #color: #6E8AA0;
-}
-.b3-text-filed::selection{
-    background-color: #106BA3;
-    color: white;
-}
-/* 对话框 */
-.b3-dialog__container{
-    #background-color: #182026;
-    border-radius: 6px;
-    #border: 1px solid #182026;
-    overflow: hidden;
-}
-
-/* 左侧边栏滚动条 */
-.fn__flex-shrink ::-webkit-scrollbar-thumb{
-    
-    border-radius: 15px;
-    
-  }
-
-
-.fn__flex-shrink .b3-list--background .b3-list-item--focus{
-    background-color: #FAFAFA!important;
-    border: none;
-    color: var(--b3-theme-primary);
-}
-.fn__flex-shrink .b3-list--background .b3-list-item--focus .b3-list-item__text{
-    
-    color: var(--b3-theme-primary);
-}
-
-/* 左侧边栏搜索 */
-.fn__flex-shrink .search__label input{
-    background-color: #FAFAFA;
-}
-/* 通用浮窗搜索 */
-.search__label input{
-    background-color: #FAFAFA;
-}
-/* 调整ember块分隔线颜色 */
-[data-type=block-render] .fn__flex-column{
-    background-color: #efefef;
-}
-
 
 .backlinkList,.backlinkMList{
-    background-color: #FAFAFA;
+    background-color: var(--b3-theme-surface);
 } 
-.block__icons--active{
-    background-color: white;
-}
+
 .language-graphviz polygon {
     fill: transparent;
 }
