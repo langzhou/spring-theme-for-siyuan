@@ -217,12 +217,12 @@
 }
 /* 对话框 */
 .b3-dialog__container{
-    #background-color: #182026;
-    border-radius: 6px;
-    #border: 1px solid #182026;
+   #overflow: hidden; /* 开启可去除对话框关闭按钮 */
+}
+.b3-dialog__container .fn__flex-column{
+    border-radius: 8px;
     overflow: hidden;
 }
-
 /** 列表样式 **/
 .vditor-reset ul, .vditor-reset ol {
     padding-left: 2em;
