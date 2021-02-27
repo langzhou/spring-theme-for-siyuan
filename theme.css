@@ -30,8 +30,8 @@
     --b3-list-hover: rgba(0, 0, 0, .06);
 
     /* 页签 */
-    --b3-tab-background: #ffffff;
-    --b3-tab-background-hover: #e9eaeb;
+    --b3-tab-background: #FFFFFF;
+    --b3-tab-background-hover: #F5F5F5;
 
     /* 提示 */
     --b3-tooltips-color: rgba(0, 0, 0, 0.54);
@@ -101,12 +101,9 @@
     --b3-vditor-inline-tag-color: #5f6368;
     --b3-vditor-inline-blockref-color: #106BA3;
 
-
-    /* 关系图连线 */
+    /* 关系图连线 fix系统自带主题线条缺失问题 */
     --b3-graph-ref-line:rgba(0, 0, 0, .4);
     --b3-graph-tag-line:rgba(100, 90, 10, .5);
-
-
 
 }
 
@@ -122,13 +119,12 @@
      border-bottom: 1px solid rgba(236,229,229,0.5);
 }
 
-/* dock面板*/
+/* dock */
 .dock{
     background-color: var(--b3-theme-surface);
 }
 /* 左侧dock */
 #dockLeft{
-    
     align-items: center; 
 }
 /* 右侧dock */
@@ -191,6 +187,12 @@
     padding: 0 2px; /* 适当增加标题文本左右间隙 */
 }
 
+
+/* 反向链接面板 */
+.backlinkList,.backlinkMList{
+    background-color: var(--b3-theme-surface);
+} 
+
 /* ########### 通用设置 & 部件 ################################## */
 
 /*滚动条整体样式*/
@@ -230,7 +232,7 @@
 }
 
 
-/* switch开关空间 */
+/* switch开关控件 */
 .b3-switch:checked{
     background-color: var(--b3-border-color);
 }
@@ -349,9 +351,7 @@ code{
     background-color: var(--b3-theme-surface);
 }
 
-.backlinkList,.backlinkMList{
-    background-color: var(--b3-theme-surface);
-} 
+
 
 .language-graphviz polygon {
     fill: transparent;
