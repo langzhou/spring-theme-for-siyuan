@@ -198,17 +198,7 @@
 
 /* ########### 通用设置 & 部件 ################################## */
 
-/*滚动条整体样式*/
-::-webkit-scrollbar {
-    width : 1px;  /* 滚动条宽度 */
-    overflow-y: hidden;
-}
-/* 滚动条颜色 */
-::-webkit-scrollbar-thumb{
-    background-color: #eee;
-    border-radius: 15px;
-    border: 1px solid #eee;
-}
+
 /* 通用文本输入框背景和字体色 */
 .b3-text-filed,.b3-select{
    
@@ -434,4 +424,19 @@ code{
 
 .language-graphviz polygon {
     fill: transparent;
+}
+
+/*滚动条整体样式*/
+::-webkit-scrollbar {
+    width : 8px;  /* 滚动条宽度 */
+    overflow-y: hidden;
+}
+
+/* 滚动条颜色 */
+::-webkit-scrollbar-thumb{
+    background-color:#f2f2f2;
+    border-radius: 15px;    
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #ccc;
 }
