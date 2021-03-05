@@ -21,7 +21,7 @@
     --b3-font-family-code: mononoki, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
 
     /* 线条 */
-    --b3-border-color: rgba(0, 0, 0, .03);
+    --b3-border-color: rgba(0, 0, 0, .05);
 
     /* 滚动条 */
     --b3-scroll-color: rgba(0, 0, 0, .1);
@@ -75,7 +75,7 @@
     --b3-vditor-search-current-background: #40C14A; /** 当前匹配的搜索结果 */
 
     /* 代码片段背景 */
-    --b3-vditor-code-background: rgba(66, 186, 130, .1);
+    --b3-vditor-code-background: #E7F3ED;
 
     /* 即时渲染标记符颜色 */
     --b3-vditor-mark-heading-color: #945932;
@@ -173,6 +173,9 @@
     border-bottom: 1px solid var(--b3-border-color);
     background-color: var(--b3-theme-background);
 }
+.layout-tab-bar:empty{
+    border-bottom: none;
+}
 /* 页签标题栏 选中状态 */
 .layout-tab-bar .item--focus {
     background-color: var(--b3-theme-background);
@@ -223,10 +226,10 @@
     border-radius: 8px;
     overflow: hidden;
 }
-/** 列表样式 **/
-.vditor-reset ul, .vditor-reset ol {
-    padding-left: 2em;
-    margin-top: 0;
+/** 列表样式 仿大纲笔记软件，多层嵌套时外层添加左边线 **/
+.vditor-ir ul ol, .vditor-ir ul ul {
+    margin-left: -0.96em !important;
+    padding-left: 2.8em !important;
     margin-bottom: 12px;
     border-left: 1px solid var(--b3-border-color);
 }
@@ -266,20 +269,15 @@
     font-size: 16px;
     word-break: break-word;
 }
-.vditor-ir--tip *[tip]:before {
-    content: attr(tip);
-    font-size: 12px;
-    color: var(--b3-theme-on-surface);
-    float: right;
-    margin: -10px 0px 0 0;
-    background-color: var(--b3-theme-background);
-    padding: 0 8px;
-    line-height: 12px;
-}
-
+/* 块命名、别名 */
 .vditor-ir--tip *[tip] {
-    padding: 5px;
-    box-shadow: -1px 0 0px 0px var(--b3-border-color),1px 0 0px 0px var(--b3-border-color),0px 1px 0px 0px var(--b3-border-color),0px -1px 0px 0px var(--b3-border-color);
+    padding: 4px;    
+}
+.vditor-ir--tip *[tip]:not([fold="1"]):before{
+    margin: -12px 8px 0 0;
+}
+.vditor-ir--tip *[tip]:not([fold="1"]){
+    
 }
 
 /* 设置编辑器光标颜色 */
@@ -292,11 +290,20 @@
     color: var(--b3-theme-on-primary);
 }
 
+/* 换行符 <br> */
+.vditor-ir__br{
+    color: #CCCCCC;
+}
 
 /* code  行内代码 */
 code{
     color: var(--b3-theme-primary);
     font-weight: bold;
+}
+
+/* 代码编辑区显示时不显示预览 bug：echarts图表无法实时更新，谨慎使用 */
+.vditor-ir__node--expand:not([data-type="inline-math"]) .vditor-ir__preview {
+    #display: none;
 }
 
 /* 数学公式 */
@@ -314,8 +321,12 @@ code{
 /* 外部链接 */
 .vditor-ir__link{
     color: #1E789B;
+    color: var(--b3-theme-primary);
     text-decoration:none;
     padding: 0 2px;
+}
+.vditor-ir__link:hover{
+    cursor: pointer;
 }
 
 /* 块引用 */
@@ -331,6 +342,7 @@ code{
     background-color: var(--b3-theme-primary-lightest);
 }
 
+
 /* blockquote 引言 */
 .vditor-reset blockquote {
     padding: 0.5em;
@@ -340,6 +352,73 @@ code{
     background-color: rgba(66,186,130,0.1);
 }
 
+/* 引用数icon */
+.vditor-ir__menu span{
+    background-color: var(--b3-theme-primary);
+    #color: red;
+    border-radius: 2px;
+    padding:0 2px;
+}
+
+/* 任务列表样式 enlightened by @zqhjl */
+.vditor-task input[type="checkbox"]:before {
+  content: "";
+  display: inline-block;
+  cursor: pointer;
+  width: 1.1rem;
+  height: 1.1rem;
+  vertical-align: middle;
+  text-align: center;
+  border: 0px;
+  border-radius: 3px;
+  background-color: var(--b3-vditor-code-background);
+  margin-top: -0.3rem;
+  margin-left: -0.2rem;
+  
+}
+
+/* 任务列表未选中，鼠标悬停 */
+.vditor-task input[type="checkbox"]:not([disabled]):not(:checked):hover:before {
+  content: "\2713";
+  font-size: 0.9rem;
+  line-height: 1rem;
+  color: hsl(192, 6%, 40%);
+  color: var(--b3-theme-primary);
+  font-weight: bold;
+}
+
+/* 任务列表选中 */
+.vditor-task input[type="checkbox"]:checked:before {
+  content: "\2713";
+  font-size: 0.9rem;
+  line-height: 1rem;
+  color: var(--b3-theme-primary);
+  font-weight: bold;
+}
+
+/* 任务列表选中，鼠标悬停 */
+.vditor-task input[type="checkbox"]:checked:hover:before {
+  content: "\2713";
+  font-size: 0.9rem;
+  line-height: 1rem;
+  color: #666;
+  font-weight: bold;
+}
+
+/* 任务列表选中后的文本样式 */
+.vditor-task--done p {
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* 任务列表与文字的距离 */
+.vditor-task input[type="checkbox"] {
+  margin-right: 0.5em;
+}
+/* 删除线样式 */
+.vditor-reset s{
+  color: #999;
+}
 /* 修改搜索结果页文件icon颜色使其更显目 #todo */
 .b3-dialog__container .b3-list-item__graphic use #iconFile{
  
