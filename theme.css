@@ -96,8 +96,8 @@
     --b3-vditor-inline-em-color: #202124;
     --b3-vditor-inline-s-color: #202124;
     --b3-vditor-inline-link-color: #4285f4;
-    --b3-vditor-inline-mark-background: #C98010;/* 搜索结果高亮背景色 */
-    --b3-vditor-inline-mark-color: #FFFFFF; /* 搜索结果高亮字体色 */
+    --b3-vditor-inline-mark-background: #FEF6AE;/* 搜索结果高亮背景色 */
+    --b3-vditor-inline-mark-color: #473F3C; /* 搜索结果高亮字体色 */
     --b3-vditor-inline-tag-color: #5f6368;
     --b3-vditor-inline-blockref-color: #106BA3;
 
@@ -195,7 +195,10 @@
 .backlinkList,.backlinkMList{
     background-color: var(--b3-theme-surface);
 } 
-
+.backlinkList mark{
+    color: var(--b3-theme-primary);
+    background-color: var(--b3-theme-surface);
+}
 /* ########### 通用设置 & 部件 ################################## */
 
 
