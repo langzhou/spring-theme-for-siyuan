@@ -1,8 +1,8 @@
 {
-  "name": "Spring",
+  "name": "spring",
   "author": "allen",
-  "url": "https://github.com/langzhou/spring-theme-for-siyuan",
-  "version": "1.1.4",
+  "url": "https://github.com/langzhou",
+  "version": "2.0.0",
   "modes": [
     "light"
   ]
