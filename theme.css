@@ -542,26 +542,27 @@ strong[style]{
     margin:2px 0;
 }
 /*表格*/
-.b3-typography table tr, .protyle-wysiwyg table tr{
-    #background-color: transparent;
+.b3-typography table tr:hover, .protyle-wysiwyg table tr:hover{
+    background-color: var(--b3-theme-surface) !important;
 }
+
 /*偶数行*/
 .b3-typography table tbody tr:nth-child(2n+1),.protyle-wysiwyg table tbody tr:nth-child(2n+1) {
     background:transparent;
 }
 
 /* 在标题下方通过圆点来显示标题层级 */
-/******
+
 .protyle-wysiwyg .h1:before,.protyle-wysiwyg .h2:before,.protyle-wysiwyg .h3:before,.protyle-wysiwyg .h4:before,.protyle-wysiwyg .h5:before{
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bolder;
     color: var(--b3-scroll-color);
     position: absolute;
-    bottom: -0.3em;
+    bottom: -0.35em;
     left: 0.2em;
 }
 .protyle-wysiwyg .h1:before{
-    content: "·";
+    #content: "·";
 }
 .protyle-wysiwyg .h2:before{
     content: "··";
@@ -575,7 +576,7 @@ strong[style]{
 .protyle-wysiwyg .h5:before{
     content: "·····";
 }
-*****/
+
 
 /* ######## 其他 ############ */
 /* 滚动条全局样式 */
