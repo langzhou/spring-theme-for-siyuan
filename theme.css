@@ -375,6 +375,16 @@ span.counter:not(.popover__block){
     color: var(--b3-theme-on-surface);
 }
 
+/*预览工具栏*/
+.protyle-preview__action{
+     background-color: var(--b3-theme-background);
+}
+.protyle-preview__action button{
+    padding: 5px 20px;
+    font-weight: bold;
+    border-radius: 100px;
+}
+
 /* ###  2.2 块图标 ####*/
 /* 减淡块图标颜色 */
 .protyle-gutters svg {
@@ -500,7 +510,7 @@ u{
 
 /* 样式参考：https://github.com/sofish/typo.css */
 
-/*页边距*/
+/*页边距 todo:这里还有些问题*/
 .protyle-preview>.b3-typography,.protyle-wysiwyg{
     padding: 8px 90px 202px !important;
 }
