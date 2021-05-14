@@ -501,7 +501,7 @@ u{
 /* 样式参考：https://github.com/sofish/typo.css */
 
 /*页边距*/
-.b3-typography, .protyle-wysiwyg{
+.protyle-preview>.b3-typography,.protyle-wysiwyg{
     padding: 8px 90px 202px !important;
 }
 
