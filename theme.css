@@ -178,9 +178,7 @@
 }
 /******* 隐藏toolbar 代码结束 *********/
 
-.protyle-wysiwyg{
-    padding: 8px 95px !important;
-}
+
 
 /* 左侧 dock */
 #dockLeft{
@@ -404,7 +402,15 @@ span.counter:not(.popover__block){
 }
 /* ############### 三、编辑器文档样式 ############################### */
 
+strong[style]{
+    color: var(--b3-theme-on-background);
+}
 
+/*重置下划线样式*/
+u{
+    text-decoration: none;
+    border-bottom: 1px solid var(--b3-theme-on-background);
+}
 /* 块属性 */
 .protyle-attr{
     top: -9px;
@@ -494,11 +500,12 @@ span.counter:not(.popover__block){
 
 /* 样式参考：https://github.com/sofish/typo.css */
 
-strong[style]{
-    color: var(--b3-theme-on-background);
+/*页边距*/
+.b3-typography, .protyle-wysiwyg{
+    padding: 8px 90px 202px !important;
 }
 
-/*全局*/
+/* 行高 */
 .b3-typography ,.protyle-wysiwyg [data-node-id] [contenteditable="true"]{
     line-height: 170%;/* 行高 */
     letter-spacing: 0px; /* 字间距 */
