@@ -140,6 +140,8 @@
     --allen-column-width:1px; /* 边框宽度 */
     --allen-column-border:var(--allen-column-width) solid var(--b3-border-color); /* 分栏边框 */
     --allen-line-height: 1.75em; /* 行高 */
+    --allen-block-margin: 2px 0 !important; /* 块间距 */
+    --allen-block-padding: 2px 4px !important; /* 块内边距 */
 
     /*动画*/
     --allen-page-scrollbar-transition: opacity 800ms ease 0s; /*分页加载条动画*/
@@ -384,6 +386,7 @@ span.counter:not(.popover__block){
 }
 .protyle-gutters:hover button {
     background-color: var(--b3-theme-primary-lightest);
+    background-color: #ECF8F2; /* 采用非透明色，避免在超级块等场景下显示不清楚 */
     
 }
 
@@ -461,7 +464,7 @@ span.counter:not(.popover__block){
 }
 
 
-/******************** 二、编辑器文档样式 ****************************************/
+/******************** 二、编辑器行内样式 ****************************************/
 
 strong[style]{
     color: var(--b3-theme-on-background);
@@ -478,7 +481,7 @@ strong[style]{
 .protyle-wysiwyg [data-node-id] span[data-type="block-ref"]{
      border-bottom: 0px dashed var(--b3-theme-primary);
      background-color: var(--b3-theme-primary-lightest);
-     padding:  2px 2px ;
+     padding:  1px 2px ;
      margin: 0px;
      border-radius: 1px;
 }
@@ -505,40 +508,6 @@ strong[style]{
     font-size: 85%;
 }
 
-/* 引述 */
-.b3-typography blockquote, .b3-typography .bq, .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
-    border-left:  2px solid var(--b3-theme-primary);
-    background-color: var(--b3-theme-background);
-    color: var(--b3-theme-on-surface);
-    margin:1em 2em 1em 2em !important; 
-    padding-left: 1em !important;
-    padding: 0 4px;
-}
-
-/* 调整引述在超级块中的样式 */
-.protyle-wysiwyg .sb blockquote,  .protyle-wysiwyg .sb .bq{
-    border-left: 3px solid var(--b3-border-color);
-    margin: 0 !important;
-    padding: 4px !important;
-}
-
-/* 代码片段 */
-.render-node[data-subtype="graphviz"] .graph > polygon {
-    fill: transparent;
-}
-
-/* 待办事项 */
-.protyle-task--done{
-    color: var(--b3-scroll-color);
-    text-decoration: line-through;
-}
-.protyle-task--done svg{
-    color: var(--b3-scroll-color) !important;
-}
-.b3-typography .protyle-task p{
-    display: inline;
-}
-
 
 
 /* 块折叠状态 */
@@ -561,6 +530,12 @@ strong[style]{
      padding:0 !important;
      border:none;
 }
+
+/* 折叠状态下隐藏命名、别名、备注 */
+.protyle-wysiwyg [data-node-id][fold="1"] .protyle-attr--name,.protyle-wysiwyg [data-node-id][fold="1"] .protyle-attr--alias,.protyle-wysiwyg [data-node-id][fold="1"] .protyle-attr--memo{
+    display: none !important;
+}
+
 
 /*大纲折叠时圆点添加背景色*/
 .protyle-wysiwyg [data-node-id][fold="1"].li>.protyle-action svg{
@@ -606,7 +581,8 @@ strong[style]{
 
 /* 段落 p */
 .b3-typography p, .b3-typography [data-node-id], .protyle-wysiwyg p, .protyle-wysiwyg [data-node-id]{
-    margin: 0;
+    margin: var(--allen-block-margin);
+    padding: var(--allen-block-padding);
     line-height: var(--allen-line-height);/* 行高 */
 }
 
@@ -644,13 +620,54 @@ strong[style]{
     #font-size: 1em;
 }
 
+/* 引述 */
+.b3-typography blockquote, .b3-typography .bq, .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
+    border-left:  2px solid var(--b3-theme-primary);
+    background-color: var(--b3-theme-background);
+    color: var(--b3-theme-on-surface);
+    margin:1em 2em 1em 2em ; 
+    padding-left: 1em ;
+    padding: 0 4px;
+}
+
+/* 调整引述在超级块中的样式 */
+.protyle-wysiwyg .sb blockquote,  .protyle-wysiwyg .sb .bq{
+    border-left: 3px solid var(--b3-border-color);
+    margin: var(--allen-block-margin);
+    padding: var(--allen-block-padding);
+}
+
+/* 代码片段 */
+.render-node[data-subtype="graphviz"] .graph > polygon {
+    fill: transparent;
+}
+.protyle-linenumber__rows{
+    line-height: var(--allen-line-height);
+}
+.b3-typography .code-block, .protyle-wysiwyg .code-block{
+    padding: 0;
+    margin: 1em 0;
+}
+
+/* 待办事项 */
+.protyle-task--done{
+    color: var(--b3-scroll-color);
+    text-decoration: line-through;
+}
+.protyle-task--done svg{
+    color: var(--b3-scroll-color) !important;
+}
+.b3-typography .protyle-task p{
+    display: inline;
+}
+
 /* 大纲、列表 */
 .b3-typography ul,.b3-typography ol ,.protyle-wysiwyg [data-node-id].list{
-    margin:0px ;
+    margin: var(--allen-block-margin) ;
 }
 /*列表项*/
 .b3-typography li,.protyle-wysiwyg [data-node-id].li{
-    margin:0;
+    margin: var(--allen-block-margin);
 }
 .b3-typography li{
     #margin-bottom: 8px;
