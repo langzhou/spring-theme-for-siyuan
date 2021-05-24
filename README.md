@@ -2,6 +2,8 @@
 
 已适配思源笔记 v1.2 
 
+问题反馈：https://github.com/langzhou/siyuan-note/issues/1
+
 另：思源笔记美化教程：[https://github.com/langzhou/siyuan-note](https://github.com/langzhou/siyuan-note)
 
 ![preview](https://raw.githubusercontent.com/langzhou/spring-theme-for-siyuan/main/preview.png)
