@@ -28,6 +28,8 @@
 
 ## 更新记录
 
+* 调整超级块中元素间距（实验功能）
+  * ![image](https://user-images.githubusercontent.com/6987229/119619381-82637680-be36-11eb-952c-3a5de1328100.png)
 * 调整段落块折叠样式，通过三角形表示折叠状态，效果如下图（实验功能，需加载 svg 图标）
   * ![image](https://user-images.githubusercontent.com/6987229/119611910-dcac0980-be2d-11eb-8bb1-3593e71b4f6f.png)
 * 调整折叠状态下列表样式：列表行高通过 calc 动态计算：行高 + 2 * 内边距
