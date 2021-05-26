@@ -620,8 +620,6 @@ strong[style]{
 /* 实验功能：调整超级块中元素间距 */
 .protyle-wysiwyg .sb div[data-node-id]{
     margin: 4px;
-}
-.protyle-wysiwyg [data-node-id]{
     border-radius: 3px;
 }
 /****** 实验功能结束 */
