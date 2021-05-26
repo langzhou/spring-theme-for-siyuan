@@ -518,6 +518,28 @@ strong[style]{
 .protyle-wysiwyg [data-node-id][fold="1"]{
      height: var(--allen-line-height); 
 }
+
+/*** 实验功能：调整段落块折叠时的样式 *****/
+.protyle-wysiwyg [data-type="NodeParagraph"][fold="1"]{
+    padding-left: 18px;
+    opacity: 1;
+}
+.protyle-wysiwyg [data-type="NodeParagraph"][fold="1"]:after{
+    content: "";
+    background-color: var(--b3-theme-on-background);
+    width:  12px;
+    height: 12px;
+    position: absolute;
+    left:   4px;
+    top:    50%;
+    margin-top: -6px;
+    -webkit-mask:   url(src/iconTriangle.svg) no-repeat;
+    mask:           url(src/iconTriangle.svg#iconVIP) no-repeat;
+    -webkit-mask-size:  100% 100%;
+    mask-size:          100% 100%;
+}
+/*** 实验功能 结束 *****/
+
 /* 调整折叠时 引述块样式 */
 .protyle-wysiwyg [data-type="NodeBlockquote"][fold="1"]{
      margin-left : 0 !important;
@@ -542,11 +564,10 @@ strong[style]{
 }
  
 
-/* 折叠状态下隐藏命名、别名、备注 */
-.protyle-wysiwyg [data-node-id][fold="1"] .protyle-attr--name,.protyle-wysiwyg [data-node-id][fold="1"] .protyle-attr--alias,.protyle-wysiwyg [data-node-id][fold="1"] .protyle-attr--memo{
+/* 折叠状态下隐藏命名、别名、备注、引用数 */
+.protyle-wysiwyg [data-node-id][fold="1"] .protyle-attr{
     display: none !important;
 }
-
 
 /*大纲折叠时圆点添加背景色*/
 .protyle-wysiwyg [data-node-id][fold="1"].li>.protyle-action svg{
