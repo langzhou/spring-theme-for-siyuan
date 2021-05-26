@@ -137,11 +137,16 @@
 
 /************* added by allen **********************************************************/
 
-    --allen-column-width:1px; /* 边框宽度 */
-    --allen-column-border:var(--allen-column-width) solid var(--b3-border-color); /* 分栏边框 */
-    --allen-line-height: 1.75em; /* 行高 */
-    --allen-block-margin: 2px 0 !important; /* 块间距 */
-    --allen-block-padding: 2px 4px !important; /* 块内边距 */
+    --allen-column-width:       1px; /* 边框宽度 */
+    --allen-column-border:      var(--allen-column-width) solid var(--b3-border-color); /* 分栏边框 */
+
+    --allen-line-height:        1.75em; /* 行高 */
+    --allen-margin-top-bottom:  2px;    /* 上下 margin */
+    --allen-margin-left-right:  0px;    /* 左右 margin */
+    --allen-padding-top-bottom: 2px;    /* 上下 padding */
+    --allen-padding-left-right: 4px;    /* 左右 padding */
+    --allen-block-margin:       var(--allen-margin-top-bottom) var(--allen-margin-left-right) !important; /* 块间距 */
+    --allen-block-padding:      var(--allen-padding-top-bottom) var(--allen-padding-left-right) !important; /* 块内边距 */
 
     /*动画*/
     --allen-page-scrollbar-transition: opacity 800ms ease 0s; /*分页加载条动画*/
@@ -289,13 +294,13 @@ span.counter:not(.popover__block){
     border-bottom: 0px solid var(--b3-border-color);
     padding: 6px 8px;
 }
-.protyle-breadcrumb .fn__flex{
+.protyle-breadcrumb__bar{
     background-color: var(--b3-theme-surface);
     padding: 4px 8px;
     border-radius: 150px;
     #box-shadow: 0 0 4px rgba(0,0,0,0.1);
 }
-.protyle-breadcrumb .fn__flex:hover{
+.protyle-breadcrumb__bar:hover{
     background-color: var(--b3-border-color);
 }
 .protyle-breadcrumb__item svg{
@@ -363,11 +368,10 @@ span.counter:not(.popover__block){
 
 
 /***** 块图标 ********/
-/****** 实验功能*
+
 .protyle-gutters{
-    transition: all 2s ease 1s;
+    padding: 9px 0; /* 调整调整 padding 之后带来的块图标垂直位置偏移 */
 }
-/***********/
 
 /* 减淡块图标颜色 */
 .protyle-gutters svg {
@@ -408,7 +412,7 @@ span.counter:not(.popover__block){
 .protyle-wysiwyg [data-node-id].li>.protyle-action svg{
     width:12px;
     height:12px;
-    margin:9px 0px 0px 1px;
+    margin:8px 0px 0px 1px;
     color: var(--b3-tooltips-color);
     border: 2px solid transparent;
 }
@@ -512,7 +516,7 @@ strong[style]{
 
 /* 块折叠状态 */
 .protyle-wysiwyg [data-node-id][fold="1"]{
-     height: 28px; 
+     height: var(--allen-line-height); 
 }
 /* 调整折叠时 引述块样式 */
 .protyle-wysiwyg [data-type="NodeBlockquote"][fold="1"]{
@@ -530,6 +534,13 @@ strong[style]{
      padding:0 !important;
      border:none;
 }
+
+/* 调整折叠时 大纲、列表样式 */
+.protyle-wysiwyg [data-type="NodeList"][fold="1"], .protyle-wysiwyg [data-type="NodeListItem"][fold="1"]{
+    opacity: 1; /* 消除官方半透明状态 */
+    height: calc(var(--allen-line-height) + var(--allen-margin-top-bottom)) + var(--allen-padding-top-bottom) !important; /* 调整高度使得折叠后垂直位置不会漂移 */
+}
+ 
 
 /* 折叠状态下隐藏命名、别名、备注 */
 .protyle-wysiwyg [data-node-id][fold="1"] .protyle-attr--name,.protyle-wysiwyg [data-node-id][fold="1"] .protyle-attr--alias,.protyle-wysiwyg [data-node-id][fold="1"] .protyle-attr--memo{
@@ -550,6 +561,11 @@ strong[style]{
     background-color: var(--b3-list-hover);
     border-radius: 20px;   
 }
+/* 清除官方圆点悬浮、折叠样式 */
+.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action:after, .protyle-wysiwyg [data-node-id].li>.protyle-action:hover:after{
+    background-color: transparent !important;
+}
+
 
 /* 消除折叠时圆点边框对待办事项的影响 */
 .protyle-wysiwyg [data-node-id][fold="1"].li>.protyle-action--task svg{
@@ -647,6 +663,9 @@ strong[style]{
 .b3-typography .code-block, .protyle-wysiwyg .code-block{
     padding: 0;
     margin: 1em 0;
+}
+.b3-typography .protyle-linenumber__rows{
+    font-size: inherit;
 }
 
 /* 待办事项 */
