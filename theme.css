@@ -538,7 +538,7 @@ strong[style]{
 /* 调整折叠时 大纲、列表样式 */
 .protyle-wysiwyg [data-type="NodeList"][fold="1"], .protyle-wysiwyg [data-type="NodeListItem"][fold="1"]{
     opacity: 1; /* 消除官方半透明状态 */
-    height: calc(var(--allen-line-height) + var(--allen-margin-top-bottom)) + var(--allen-padding-top-bottom) !important; /* 调整高度使得折叠后垂直位置不会漂移 */
+    height: calc( var(--allen-line-height) + var(--allen-padding-top-bottom) * 2 ) !important; /* 调整高度使得折叠后垂直位置不会漂移 */
 }
  
 
