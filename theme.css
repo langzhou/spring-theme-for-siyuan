@@ -266,6 +266,17 @@ span.counter:not(.popover__block){
     padding: 10px;
 }
 
+/* 字体样式设置弹框 */
+.protyle-font div{
+    padding: 4px 0;
+}
+.b3-color__square{
+    margin-right: 6px;
+    height: 22px;
+    width: 22px;
+    line-height: 22px;
+    border-radius: 2px;
+}
 
 /******** 文档编辑区 **********/
 
@@ -364,6 +375,7 @@ span.counter:not(.popover__block){
 .protyle-toolbar{
     border-radius: 30px;
     padding: 1px 8px;
+    z-index: 100;
 }
 
 
@@ -455,6 +467,37 @@ span.counter:not(.popover__block){
     color: var(--b3-theme-on-surface);
 }
 
+/* 实验功能：优化反链浮窗面板的显示样式 */
+.block__popover .protyle-breadcrumb__bar{
+    background-color: transparent;
+}
+.block__popover .protyle-breadcrumb__bar:hover{
+    background-color: var(--b3-theme-surface);
+}
+.block__popover .protyle-breadcrumb:hover .protyle-breadcrumb__item,.block__popover .protyle-breadcrumb:hover .protyle-breadcrumb__arrow{
+    visibility: visible; /*悬浮时显示完整面包屑*/
+}
+.block__popover .protyle-breadcrumb__item:not(:first-child),.block__popover .protyle-breadcrumb__arrow:not(:first-child){
+    visibility: hidden;
+}
+.block__popover .protyle-breadcrumb__item:first-child{
+    font-weight: bold; /*文件名加粗*/
+}
+.block__popover .protyle-breadcrumb__item:first-child svg{
+    display: none;
+}
+/*调整右侧三点菜单样式*/
+.block__popover .protyle-breadcrumb .b3-tooltips{
+    line-height: 36px;
+    height: 36px !important;
+}
+.block__popover .protyle-breadcrumb .b3-tooltips svg{
+    opacity: 0.2;
+    float: none;
+    padding: 0;
+}
+/****** 实验功能结束 *******/
+
 
 /********文档预览模式 ********/
 /*预览工具栏*/
@@ -470,9 +513,12 @@ span.counter:not(.popover__block){
 
 /******************** 二、编辑器行内样式 ****************************************/
 
+/* 实验功能：设置字体样式后不会显示为粗体。该功能开启后将无法实现粗体和字体样式同时设置！！ *
 strong[style]{
     color: var(--b3-theme-on-background);
+    font-weight: normal;
 }
+/****** 实验功能结束 ******/
 
 /* 下划线 */
 .protyle-wysiwyg u, .b3-typography u{
@@ -559,7 +605,6 @@ strong[style]{
 
 /* 调整折叠时 大纲、列表样式 */
 .protyle-wysiwyg [data-type="NodeList"][fold="1"], .protyle-wysiwyg [data-type="NodeListItem"][fold="1"]{
-    opacity: 1; /* 消除官方半透明状态 */
     height: calc( var(--allen-line-height) + var(--allen-padding-top-bottom) * 2 ) !important; /* 调整高度使得折叠后垂直位置不会漂移 */
 }
  
@@ -644,7 +689,7 @@ strong[style]{
 
 .b3-typography .h2, .b3-typography h2, .protyle-wysiwyg .h2, .protyle-wysiwyg h2{
     margin: 14px 0 0 0;
-    padding: 0.2em 4px;
+    padding: 0.2em 0px;
     #font-size: 1.8em;
     border:none;
 }
@@ -669,7 +714,7 @@ strong[style]{
 .b3-typography blockquote, .b3-typography .bq, .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
     border-left:  2px solid var(--b3-theme-primary);
     background-color: var(--b3-theme-background);
-    color: var(--b3-theme-on-surface);
+    #color: var(--b3-theme-on-surface);
     margin:1em 2em 1em 2em ; 
     padding: 0 4px;
     padding-left: 1em ;
