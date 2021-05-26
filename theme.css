@@ -534,7 +534,7 @@ strong[style]{
     top:    50%;
     margin-top: -6px;
     -webkit-mask:   url(src/iconTriangle.svg) no-repeat;
-    mask:           url(src/iconTriangle.svg#iconVIP) no-repeat;
+    mask:           url(src/iconTriangle.svg) no-repeat;
     -webkit-mask-size:  100% 100%;
     mask-size:          100% 100%;
 }
@@ -615,6 +615,16 @@ strong[style]{
     word-break: normal;
     word-wrap: break-word;
 }
+
+/*** 超级块 ***/
+/* 实验功能：调整超级块中元素间距 */
+.protyle-wysiwyg .sb div[data-node-id]{
+    margin: 4px;
+}
+.protyle-wysiwyg [data-node-id]{
+    border-radius: 3px;
+}
+/****** 实验功能结束 */
 
 /* 段落 p */
 .b3-typography p, .b3-typography [data-node-id], .protyle-wysiwyg p, .protyle-wysiwyg [data-node-id]{
