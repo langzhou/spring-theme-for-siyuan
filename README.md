@@ -29,7 +29,7 @@
 ## 更新记录
 
 * 实验功能：精简反链面板，鼠标悬浮时展示完整面包屑（仅在 winter 主题中启用）
-  * ![image](https://user-images.githubusercontent.com/6987229/119664045-85c22680-be65-11eb-83b5-b21731cad176.png)
+  * ![image](https://user-images.githubusercontent.com/6987229/119664308-c621a480-be65-11eb-95c3-655ad0760c65.png)
 * 实验功能：设置字体样式后不会显示为粗体。该功能开启后将无法实现粗体和字体样式同时设置，请谨慎开启！
 * 调整字体样式设置弹框
 * 实验功能：调整超级块中元素间距
