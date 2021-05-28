@@ -239,12 +239,10 @@ span.counter:not(.popover__block){
 }
 
 
-
 /********* 菜单、弹框 **************/
 /* 右键菜单 */
 .b3-menu{
     padding: 12px 8px;
-
 }
 /* 菜单项 */
 .b3-menu__item{
@@ -301,11 +299,18 @@ span.counter:not(.popover__block){
 .layout-tab-bar .item__text{
     padding: 0 2px;
 }
+/* 默认隐藏页签关闭按钮，悬浮时展现 */
+.layout-tab-bar .item__close{
+    visibility: hidden;
+}
+.layout-tab-bar .item:hover .item__close{
+    visibility: visible;
+}
 
 /***** 面包屑 *****/
 .protyle-breadcrumb{
     background-color: var(--b3-theme-background);
-    #background-color: transparent;
+    /* background-color: transparent; */
     border-bottom: 0px solid var(--b3-border-color);
     padding: 6px 8px;
 }
@@ -313,7 +318,7 @@ span.counter:not(.popover__block){
     background-color: var(--b3-theme-surface);
     padding: 4px 8px;
     border-radius: 150px;
-    #box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    /* box-shadow: 0 0 4px rgba(0,0,0,0.1); */
 }
 .protyle-breadcrumb__bar:hover{
     background-color: var(--b3-border-color);
@@ -325,7 +330,7 @@ span.counter:not(.popover__block){
     color: var(--b3-theme-primary);
 }
 .protyle-breadcrumb svg{
-    #color: var(--b3-scroll-color);
+    /* color: var(--b3-scroll-color); */
 }
 
 /* 实验功能：设置最大宽度，超出...显示 **
@@ -359,7 +364,7 @@ span.counter:not(.popover__block){
 /* 光标选中文本样式 */
 .protyle-wysiwyg ::selection{ 
     background-color:var(--b3-theme-primary-lightest);
-    #color: var(--b3-theme-on-primary);
+    /* #color: var(--b3-theme-on-primary); */
 }
 
 /* 实验功能：鼠标划选区域*/
@@ -562,7 +567,10 @@ strong[style]{
     font-size: 85%;
 }
 
-
+/* 数学公式 */
+.b3-typography [data-subtype="math"], .protyle-wysiwyg [data-subtype="math"]{
+    font-size: 100%;
+}
 
 /* 块折叠状态 */
 .protyle-wysiwyg [data-node-id][fold="1"]{
@@ -697,24 +705,24 @@ strong[style]{
 .b3-typography .h2, .b3-typography h2, .protyle-wysiwyg .h2, .protyle-wysiwyg h2{
     margin: 14px 0 0 0;
     padding: 0.2em 0px;
-    #font-size: 1.8em;
+    /* #font-size: 1.8em; */
     border:none;
 }
 .b3-typography .h3, .b3-typography h3, .protyle-wysiwyg .h3, .protyle-wysiwyg h3{
     margin: 12px 0 0 0;
-    #font-size: 1.6em;
+    /* #font-size: 1.6em; */
 }
 .b3-typography .h4, .b3-typography h4, .protyle-wysiwyg .h4, .protyle-wysiwyg h4{
     margin: 6px 0 0 0;
-    #font-size: 1.4em;
+    /* #font-size: 1.4em; */
 }
 .b3-typography .h5, .b3-typography h5, .protyle-wysiwyg .h5, .protyle-wysiwyg h5{
-    #margin: 6px 0 0 0;
-    #font-size: 1.2em;
+    /* #margin: 6px 0 0 0; */
+    /* #font-size: 1.2em; */
 }
 .b3-typography .h6, .b3-typography h6, .protyle-wysiwyg .h6, .protyle-wysiwyg h6{
-    #margin: 6px 0 0 0;
-    #font-size: 1em;
+    /* #margin: 6px 0 0 0; */
+    /* #font-size: 1em; */
 }
 
 /* 引述 */
@@ -821,7 +829,6 @@ strong[style]{
 .b3-dialog--open .b3-dialog__container{
     transform:translate(-50%,-50%); animation: dialogOpen 0.3s ease-in-out forwards;
 }
-
 @keyframes dialogOpen {
     0% {
         -webkit-transform: matrix3d(.7, 0, 0, 0, 0, .7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
