@@ -167,10 +167,10 @@
 
 /* 说明：支持在全屏模式下自动隐藏顶栏，鼠标悬浮时展现。请将 min-height和 min-width 设置为自己电脑屏幕分辨率，如果不需要此功能请注释代码 */
 /******* 隐藏toolbar 代码开始 *********/
-@media only screen and (min-height: 800px) and (min-width: 1000px)
+@media only screen and (min-height: 900px) and (min-width: 1400px)
 {
     .toolbar{
-        height: 8px;
+        height: 0px;
         transition: height 400ms ease 0s;
     }
     .toolbar > div{
@@ -188,16 +188,20 @@
 
 
 /******* dock  **********/
-/* 左侧 dock */
-#dockLeft{
+#dockLeft, #dockRight, #dockTop, #dockBottom{
     background-color: var(--b3-theme-surface);
+}
+#dockLeft{
     border-right:var(--allen-column-border);
 }
-
-/* 右侧 dock */
 #dockRight{
-    background-color: var(--b3-theme-surface);
     border-left: var(--allen-column-border);
+}
+#dockTop{
+    border-bottom: var(--allen-column-border);
+}
+#dockBottom{
+    border-top: var(--allen-column-border)
 }
 
 /******** 边栏 column **********/
@@ -287,13 +291,19 @@ span.counter:not(.popover__block){
     background-color: var(--b3-theme-background);
     border-bottom: var(--allen-column-border);
 }
+
 /*清除页签栏边框对侧边栏的影响*/
 .layout-tab-bar:empty{
     border-bottom: none;
 }
 /* 页签选中状态 */
-.layout-tab-bar .item--focus{
+.layout-tab-bar .item{
     background-color: transparent;
+    border-bottom: 2px solid transparent;
+}
+.layout-tab-bar .item--focus{
+    /* background-color: var(--b3-theme-surface); */
+    border-color: var(--b3-theme-primary);
 }
 /* 页签标题 */
 .layout-tab-bar .item__text{
@@ -691,38 +701,45 @@ strong[style]{
     line-height: var(--allen-line-height);/* 行高 */
 }
 
-/*标题 h*/
+/****** 标题 ********/
+/* 页面标题 */
+.protyle-title__input{
+
+}
+
+/* 文档标题 */
 .b3-typography .h1,.b3-typography h1,.b3-typography .h2,.b3-typography h2,.b3-typography .h3,.b3-typography h3,.b3-typography .h4,.b3-typography h4,.b3-typography .h5,.b3-typography h5,.b3-typography .h6,.b3-typography h6,.protyle-wysiwyg .h1,.protyle-wysiwyg h1,.protyle-wysiwyg .h2,.protyle-wysiwyg h2,.protyle-wysiwyg .h3,.protyle-wysiwyg h3,.protyle-wysiwyg .h4,.protyle-wysiwyg h4,.protyle-wysiwyg .h5,.protyle-wysiwyg h5,.protyle-wysiwyg .h6,.protyle-wysiwyg h6 {
 
 }
 
 .b3-typography .h1, .b3-typography h1, .protyle-wysiwyg .h1, .protyle-wysiwyg h1{
-    margin: 14px 0 8px 0;
+    margin: 12px 0 8px 0;
     padding: 0.2em 4px;
-    font-size: 1.8em;
+    font-size: 1.75em;
+    border-bottom: 1px solid var(--b3-border-color);
 }
 
 .b3-typography .h2, .b3-typography h2, .protyle-wysiwyg .h2, .protyle-wysiwyg h2{
-    margin: 14px 0 0 0;
-    padding: 0.2em 0px;
-    /* #font-size: 1.8em; */
+    margin: 12px 0 0 0;
+    padding: 0.1em 4px;
+    font-size: 1.55em;
     border:none;
 }
 .b3-typography .h3, .b3-typography h3, .protyle-wysiwyg .h3, .protyle-wysiwyg h3{
-    margin: 12px 0 0 0;
-    /* #font-size: 1.6em; */
+    margin: 10px 0 0 0;
+    font-size: 1.38em;
 }
 .b3-typography .h4, .b3-typography h4, .protyle-wysiwyg .h4, .protyle-wysiwyg h4{
     margin: 6px 0 0 0;
-    /* #font-size: 1.4em; */
+    font-size: 1.25em;
 }
 .b3-typography .h5, .b3-typography h5, .protyle-wysiwyg .h5, .protyle-wysiwyg h5{
-    /* #margin: 6px 0 0 0; */
-    /* #font-size: 1.2em; */
+    /* margin: 6px 0 0 0; */
+    font-size: 1.13em;
 }
 .b3-typography .h6, .b3-typography h6, .protyle-wysiwyg .h6, .protyle-wysiwyg h6{
-    /* #margin: 6px 0 0 0; */
-    /* #font-size: 1em; */
+    /* margin: 6px 0 0 0; */
+    font-size: 1em;
 }
 
 /* 引述 */
@@ -946,4 +963,8 @@ strong[style]{
 }
 ::-webkit-scrollbar-thumb:hover{
     background-color: #ccc;
+}
+/* 侧边栏滚动条 */
+#layouts > .fn__flex-1 > .fn__flex-column ::-webkit-scrollbar{
+    width: 6px;
 }
