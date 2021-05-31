@@ -170,7 +170,7 @@
 @media only screen and (min-height: 900px) and (min-width: 1400px)
 {
     .toolbar{
-        height: 0px;
+        height: 8px;
         transition: height 400ms ease 0s;
     }
     .toolbar > div{
@@ -322,11 +322,12 @@ span.counter:not(.popover__block){
     background-color: var(--b3-theme-background);
     /* background-color: transparent; */
     border-bottom: 0px solid var(--b3-border-color);
-    padding: 6px 8px;
+    padding: 0 8px;
 }
 .protyle-breadcrumb__bar{
     background-color: var(--b3-theme-surface);
     padding: 4px 8px;
+    margin: 4px;
     border-radius: 150px;
     /* box-shadow: 0 0 4px rgba(0,0,0,0.1); */
 }
@@ -503,7 +504,7 @@ span.counter:not(.popover__block){
     font-weight: bold; /*文件名加粗*/
 }
 .block__popover .protyle-breadcrumb__item:first-child svg{
-    display: none;
+    /* display: none; */
 }
 /*调整右侧三点菜单样式*/
 .block__popover .protyle-breadcrumb .b3-tooltips{
