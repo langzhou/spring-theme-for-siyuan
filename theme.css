@@ -169,7 +169,7 @@
 
 
 /* 说明：支持在全屏模式下自动隐藏顶栏，鼠标悬浮时展现。请将 min-height和 min-width 设置为自己电脑屏幕分辨率，如果不需要此功能请注释代码 */
-/******* 隐藏toolbar 代码开始 *********/
+/******* 隐藏toolbar 代码开始 *********
 @media only screen and (min-height: 900px) and (min-width: 1400px)
 {
     .toolbar{
