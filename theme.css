@@ -126,7 +126,7 @@
     --b3-protyle-code-background: rgba(27, 31, 35, .05);
 
     /* 所见即所得行内元素颜色 */
-    --b3-protyle-inline-strong-color: var(--b3-theme-on-background); /* 粗体 */
+    --b3-protyle-inline-strong-color: inherit; /* 粗体 */
     --b3-protyle-inline-em-color:  var(--b3-theme-on-background); /* 斜体 */
     --b3-protyle-inline-s-color: var(--b3-theme-on-background); /* 删除线 */
     --b3-protyle-inline-link-color: var(--b3-theme-primary); /* 超级链接 */
@@ -152,6 +152,9 @@
     --allen-page-scrollbar-transition: opacity 800ms ease 0s; /*分页加载条动画*/
     --allen-flex-column-transition: width 200ms cubic-bezier(0, 0.7, 0.4, 1); /*侧边栏动画*/
     --allen-common-transition: all 400ms ease 0s;/*通用动画*/
+
+    --allen-background-image: url("src/bg.jpg"); /* 侧边栏背景图 */
+    --allen-blur-value: 4px; /* 背景图片模糊程度 */
 }
 
 
@@ -170,7 +173,7 @@
 @media only screen and (min-height: 900px) and (min-width: 1400px)
 {
     .toolbar{
-        height: 8px;
+        height: 0px;
         transition: height 400ms ease 0s;
     }
     .toolbar > div{
@@ -284,6 +287,9 @@ span.counter:not(.popover__block){
     border-radius: 2px;
 }
 
+.b3-text-filed[readonly]{
+    border: none;
+}
 /******** 文档编辑区 **********/
 
 /*** 页签栏 ****/
@@ -445,8 +451,11 @@ span.counter:not(.popover__block){
     width:12px;
     height:12px;
     margin:8px 0px 0px 1px;
-    color: var(--b3-tooltips-color);
     border: 2px solid transparent;
+}
+/* 设置彩色卡片内的原点颜色 */
+.protyle-wysiwyg [data-node-id][style] .protyle-action {
+    color:inherit !important;
 }
 
 /* 圆点悬浮时样式 */
@@ -544,6 +553,7 @@ strong[style]{
 .protyle-wysiwyg u, .b3-typography u{
     text-decoration: none;
     border-bottom: 1px solid var(--b3-theme-on-background);
+    border-color: inherit;
 }
 
 
@@ -586,6 +596,10 @@ strong[style]{
 /* 块折叠状态 */
 .protyle-wysiwyg [data-node-id][fold="1"]{
      height: var(--allen-line-height); 
+}
+/* 移除官方设定的padding-top */
+.protyle-wysiwyg [data-node-id][fold="1"] [data-node-id]{
+    padding-top: var(--allen-padding-top-bottom);
 }
 
 /*** 实验功能：调整段落块折叠时的样式 *****/
@@ -667,7 +681,6 @@ strong[style]{
 }
 
 
-
 /****************** 三、文档排版 ***************************************/
 
 /* 通用设置 */
@@ -694,6 +707,16 @@ strong[style]{
     margin:4px;
 }
 /****** 实验功能结束 */
+
+/* 实验功能：颜色卡片增加padding */
+.sb div[data-node-id][style]{
+    padding: 8px 10px;
+}
+/* 嵌套内的颜色卡片恢复正常padding */
+.sb div[data-node-id][style] div[data-node-id][style] {
+    padding: var(--allen-block-padding);
+}
+/**** 实验功能结束 ***/
 
 /* 段落 p */
 .b3-typography p, .b3-typography [data-node-id], .protyle-wysiwyg p, .protyle-wysiwyg [data-node-id]{
@@ -840,7 +863,44 @@ strong[style]{
 }
 /************ 显示标题层级 代码结束 **************/
 
-
+/************* 实验功能：开启侧边栏背景图 *************************/
+body{
+    background-image: var(--allen-background-image);
+    background-position: center top;
+	background-size: cover;
+}
+.toolbar,#dockLeft, #dockRight, #dockTop, #dockBottom{
+    background: transparent;
+}
+.fn__flex-shrink div{
+    background: transparent;
+}
+.fn__flex-shrink {
+    position: relative;
+	overflow: hidden;
+	z-index: 2;
+	box-sizing: border-box;
+} 
+.fn__flex-shrink::before{
+    content: '';
+	position: absolute;
+	top: 0;	left: 0; right: 0;	bottom: 0;
+	-webkit-filter: blur(var(--allen-blur-value));
+	-moz-filter: blur(var(--allen-blur-value));
+	-ms-filter: blur(var(--allen-blur-value));
+	-o-filter: blur(var(--allen-blur-value));
+	filter: blur(var(--allen-blur-value));
+	z-index: -3;   
+	background-image: var(--allen-background-image);  
+	background-position: center top;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.layout__resize--lr:after{
+    background-color: transparent;
+    transition: var(--allen-common-transition);
+}
+/************************* 开启侧边栏背景图 代码结束 *****************************/
 
 /************************* 其他 **********************************************/
 /* 滚动条样式 */
