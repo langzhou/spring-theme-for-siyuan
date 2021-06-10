@@ -2,8 +2,8 @@
 
 ![image](https://user-images.githubusercontent.com/6987229/119611742-abcbd480-be2d-11eb-9a3f-a1eecff889f9.png)
 
+此主题已停止更新，新的主题已统一迁移至 [Toy Theme for Siyuan](https://github.com/langzhou/toy-theme-for-siyuan) 
 
-主题问题反馈：https://github.com/langzhou/siyuan-note/issues/1
 
 另：思源笔记美化教程：[https://github.com/langzhou/siyuan-note](https://github.com/langzhou/siyuan-note)
 
