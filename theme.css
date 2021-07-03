@@ -387,24 +387,24 @@ body{
 }
 /* 增加块图标悬浮时背景色 */
 .protyle-gutters button:hover svg{
-    color: var(--b3-theme-primary);
+    /* color: var(--b3-theme-primary); */
 }
 .protyle-gutters button{
-    padding: 2px 0 0 0;
+    /* padding: 2px 0 0 0;
     width: 20px;
     height: 20px;
     border-radius: 3px;
     margin-left:  3px;
     line-height: 20px;
-    background-color: var(--b3-theme-background); /* 强制块图标使用背景色，以避免在超级块等场景下显示不清楚 */
+    background-color: var(--b3-theme-background); */ /* 强制块图标使用背景色，以避免在超级块等场景下显示不清楚 */
 }
 .protyle-gutters:hover button {
-    background-color: var(--gutters-hover-background); /* 采用非透明色，避免在超级块等场景下显示不清楚 */
+    /* background-color: var(--gutters-hover-background); 采用非透明色，避免在超级块等场景下显示不清楚 */
 }
 
 /* 调整设置行高后的块图标整体位置偏移 */
 .protyle-gutters{
-    margin: 0.625em 0;
+    /* margin: 0.625em 0; */
 }
 /**** 块属性 ****/
 
